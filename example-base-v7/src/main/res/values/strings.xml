@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Example Base v7</string>
+
+    <string name="message_empty">There are no items</string>
+</resources>
