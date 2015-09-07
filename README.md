@@ -11,7 +11,7 @@ how I would architect my Android code in future projects.
 
 ![diagram](http://kimo.io/images/android-diagram.png)
 
-For more details of this library click [here](http://kimo.io/2015/09/06/base/).
+For more details of this library, click [here](http://kimo.io/2015/09/06/base/).
 
 ## Using
 
@@ -37,11 +37,6 @@ dependencies {
     compile 'com.github.thiagokimo.Base:base-domain:1.0.0'
 }
 ```
-## Current features
-- Load data collection
-
-## Coming soon
-- RxPresenter
 
 ## Credits
 - Icon by Jhun Capaya
