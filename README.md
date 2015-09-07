@@ -24,16 +24,13 @@ Add any of the modules inside your dependencies:
 ``` groovy
 dependencies {
     // base files
-    compile 'com.github.thiagokimo:Base:base:1.0.0'
-
+    compile 'com.github.thiagokimo.Base:base:1.0.0'
     // support v7
-    compile 'com.github.thiagokimo:Base:base-v7:1.0.0'
-
+    compile 'com.github.thiagokimo.Base:base-v7:1.0.0'
     // mvp module
-    compile 'com.github.thiagokimo:Base:base-mvp:1.0.0'
-
+    compile 'com.github.thiagokimo.Base:base-mvp:1.0.0'
     // domain base files
-    compile 'com.github.thiagokimo:Base:base-domain:1.0.0'
+    compile 'com.github.thiagokimo.Base:base-domain:1.0.0'
 }
 ```
 
