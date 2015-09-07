@@ -1,5 +1,6 @@
 #Base
 
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Base-green.svg?style=flat)](https://android-arsenal.com/details/1/2454)
 ![Jitpack Badge](https://img.shields.io/github/release/thiagokimo/Base.svg?label=JitPack)
 
 Base is a lightweight library that gives you a clean architecture foundation for your Android MVP's.
