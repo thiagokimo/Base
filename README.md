@@ -2,9 +2,9 @@
 
 ![Jitpack Badge](https://img.shields.io/github/release/thiagokimo/Base.svg?label=JitPack)
 
-Base is a lightweight library that provides you a clean architecture for your Android MVP's.
+Base is a lightweight library that gives you a clean architecture foundation for your Android MVP's.
 
-![Icon](https://raw.githubusercontent.com/thiagokimo/Base/master/images/base-icon.png)
+![icon](https://raw.githubusercontent.com/thiagokimo/Base/master/images/base-icon.png)
 
 The main objective of this repository is to show developers
 how I would architect my Android code in future projects.
