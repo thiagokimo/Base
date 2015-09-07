@@ -1,16 +1,11 @@
 #Base
 
-This is a base Android architecture that I most "agree" in the moment. The main objective of this repository is to show developers
-how I would organize my Android code in future projects.
+Base is a library that provides you a base architecture for your Android MVP's.
+
+The main objective of this repository is to show developers
+how I would architect my Android code in future projects.
 
 For more details of this library click [here](#url)
-
-##Coming soon
-- RxPresenter
-
-##Developed by
-
-* Thiago Rocha - http://kimo.io - <kimo@kimo.io>
 
 ##License
 

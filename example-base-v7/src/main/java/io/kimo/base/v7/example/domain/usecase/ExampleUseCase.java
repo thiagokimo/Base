@@ -24,7 +24,7 @@ public class ExampleUseCase extends BaseUseCase<List<ExampleEntity>> {
         List<ExampleEntity> items = new ArrayList<>();
 
         for(int i = 0; i < 100; i++) {
-            items.add(new ExampleEntity(Faker.with(context).Name.firstName(), Faker.with(context).Number.positiveDigit()));
+            items.add(new ExampleEntity(Faker.with(context).Name.firstName(), Faker.with(context).Name.title()));
         }
 
         return items;

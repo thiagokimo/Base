@@ -56,7 +56,7 @@ public class ExampleListAdapter extends BaseAdapter {
         TextView subtitle = (TextView) convertView.findViewById(R.id.subtitle);
 
         title.setText(model.getName());
-        subtitle.setText(model.getModelId()+"");
+        subtitle.setText(model.getProfession());
 
         return convertView;
     }

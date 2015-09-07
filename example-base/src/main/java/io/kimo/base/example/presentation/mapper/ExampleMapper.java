@@ -10,6 +10,7 @@ public class ExampleMapper extends BaseMapper<ExampleEntity, ExampleModel> {
         ExampleModel model = new ExampleModel();
 
         model.setName(entity.getName());
+        model.setProfession(entity.getTitle());
 
         return model;
     }
