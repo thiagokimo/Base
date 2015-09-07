@@ -1,5 +1,7 @@
 #Base
 
+![Jitpack Badge](https://img.shields.io/github/release/thiagokimo/Base.svg?label=JitPack)
+
 Base is a library that provides you a base architecture for your Android MVP's.
 
 The main objective of this repository is to show developers
@@ -17,10 +19,10 @@ repositories {
 }
 ```
 
-Add the dependency:
+Add any of the modules inside your dependencies:
 
 ``` groovy
-
+dependencies {
     // base files
     compile 'com.github.thiagokimo:Base:base:1.0.0'
 
@@ -32,6 +34,7 @@ Add the dependency:
 
     // domain base files
     compile 'com.github.thiagokimo:Base:base-domain:1.0.0'
+}
 ```
 
 ##License
