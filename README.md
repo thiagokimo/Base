@@ -35,6 +35,11 @@ dependencies {
     compile 'com.github.thiagokimo.Base:base-domain:1.0.0'
 }
 ```
+## Current features
+- Load data collection
+
+## Coming soon
+- RxPresenter
 
 ##License
 
