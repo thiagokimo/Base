@@ -30,6 +30,8 @@ Add any of the modules inside your dependencies:
 dependencies {
     // base files
     compile 'com.github.thiagokimo.Base:base:1.0.0'
+    // support v4
+        compile 'com.github.thiagokimo.Base:base-v4:1.0.0'
     // support v7
     compile 'com.github.thiagokimo.Base:base-v7:1.0.0'
     // mvp module
