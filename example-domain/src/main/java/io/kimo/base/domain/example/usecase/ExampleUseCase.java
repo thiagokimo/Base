@@ -58,11 +58,11 @@ public class ExampleUseCase extends BaseUseCase<List<ExampleEntity>> {
         // wait a little bit to let the progressbar appear
         Thread.sleep(1000);
 
-        int scenarioToBeReturned = randomScenario();
+        int scenarioToBeReturned = FILLED_ARRAY;
 
         if(scenarioToBeReturned == FILLED_ARRAY) {
             for(int i = 0; i < 100; i++) {
-                items.add(new ExampleEntity(Faker.with(context).Name.firstName(), Faker.with(context).Name.title()));
+                items.add(new ExampleEntity(Faker.with(context).Name.fullName(), Faker.with(context).Name.title(), Faker.with(context).Url.image()));
             }
 
             return items;

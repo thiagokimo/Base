@@ -23,6 +23,10 @@ public class ExampleListPresenter extends BasePresenter<ExampleListView> {
         this.context = context;
     }
 
+    public void navigateToExampleDetailView(ExampleModel model) {
+        view.navigateToExampleDetailView(model);
+    }
+
     @Override
     public void createView() {
         super.createView();

@@ -2,6 +2,7 @@ package io.kimo.base.v4.example.ui.fragment;
 
 import android.content.Context;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -13,6 +14,7 @@ import io.kimo.base.v4.example.R;
 import io.kimo.base.v4.example.mvp.model.ExampleModel;
 import io.kimo.base.v4.example.mvp.presenter.ExampleListPresenter;
 import io.kimo.base.v4.example.mvp.view.ExampleListView;
+import io.kimo.base.v4.example.ui.activity.ExampleDetailActivity;
 import io.kimo.base.v4.example.ui.adapter.ExampleListAdapter;
 import io.kimo.base.v4.presentation.mvp.BaseView;
 
@@ -58,6 +60,12 @@ public class ExampleListFragment extends BaseView<ExampleListPresenter> implemen
 
         adapter = new ExampleListAdapter(getActivity());
         list.setAdapter(adapter);
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                presenter.navigateToExampleDetailView(adapter.getItem(position));
+            }
+        });
 
         retryButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -126,5 +134,10 @@ public class ExampleListFragment extends BaseView<ExampleListPresenter> implemen
     @Override
     public void hideView() {
         list.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void navigateToExampleDetailView(ExampleModel model) {
+        ExampleDetailActivity.navigate(model, getActivity());
     }
 }

@@ -6,10 +6,12 @@ public class ExampleEntity extends BaseEntity {
 
     private String name;
     private String title;
+    private String imageUrl;
 
-    public ExampleEntity(String name, String title) {
+    public ExampleEntity(String name, String title, String imageUrl) {
         this.name = name;
         this.title = title;
+        this.imageUrl = imageUrl;
     }
 
     public String getName() {
@@ -18,5 +20,9 @@ public class ExampleEntity extends BaseEntity {
 
     public String getTitle() {
         return title;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
     }
 }
