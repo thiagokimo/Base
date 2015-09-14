@@ -44,7 +44,7 @@ dependencies {
 }
 ```
 
-If you want to use Base in separate modules you could also add its modules separately.
+If you want to use Base in separate modules you could also add them separately.
 
 ```groovy
 dependencies {
