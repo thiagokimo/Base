@@ -19,22 +19,36 @@ For more details of this library, click [here](http://kimo.io/2015/09/06/base/).
 Add it in your build.gradle at the end of repositories:
 ``` groovy
 repositories {
-	    // ...
-	    maven { url "https://jitpack.io" }
+	// ...
+	maven { url "https://jitpack.io" }
 }
 ```
 
-Add any of the modules inside your dependencies:
+Add the base into your dependencies:
 
 ``` groovy
 dependencies {
     // base files
     compile 'com.github.thiagokimo.Base:base:1.0.0'
+}
+```
+
+Base can be used with the support libraries as well. 
+
+``` groovy
+dependencies {
     // support v4
     compile 'com.github.thiagokimo.Base:base-v4:1.0.0'
-    // support v7
-    compile 'com.github.thiagokimo.Base:base-v7:1.0.0'
-    // mvp module
+	// support v7
+	compile 'com.github.thiagokimo.Base:base-v7:1.0.0'
+}
+```
+
+If you want to use Base in separate modules you could also add its modules separately.
+
+```groovy
+dependencies {
+	//mvp base files 
     compile 'com.github.thiagokimo.Base:base-mvp:1.0.0'
     // domain base files
     compile 'com.github.thiagokimo.Base:base-domain:1.0.0'
