@@ -52,7 +52,6 @@ compile 'com.github.thiagokimo.Base:base-mvp:1.0.0'
 
 Or just the domain files:
 ``` groovy
-// domain base files
 compile 'com.github.thiagokimo.Base:base-domain:1.0.0'
 ```
 
