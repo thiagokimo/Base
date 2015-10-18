@@ -22,6 +22,6 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile project(':base-v7')
-    compile project(':example-domain')
+    compile project(':example-mvp')
     compile 'com.squareup.picasso:picasso:2.5.2'
 }
