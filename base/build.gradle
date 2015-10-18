@@ -20,5 +20,6 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile project(':base-domain')
     compile project(':base-mvp')
 }
