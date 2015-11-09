@@ -1,16 +1,16 @@
 package io.kimo.base.mvp.example.presenter;
 
 
-import io.kimo.base.mvp.example.model.ExampleModel;
-import io.kimo.base.mvp.example.view.ExampleDetailView;
+import io.kimo.base.mvp.example.model.CustomerModel;
+import io.kimo.base.mvp.example.view.CustomerDetailView;
 import io.kimo.base.presentation.mvp.BasePresenter;
 
 
-public class ExampleDetailPresenter extends BasePresenter<ExampleDetailView> {
+public class CustomerDetailPresenter extends BasePresenter<CustomerDetailView> {
 
-    private ExampleModel model;
+    private CustomerModel model;
 
-    public ExampleDetailPresenter(ExampleModel model, ExampleDetailView view) {
+    public CustomerDetailPresenter(CustomerModel model, CustomerDetailView view) {
         super(view);
         this.model = model;
     }

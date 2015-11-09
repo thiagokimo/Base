@@ -10,7 +10,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.kimo.base.mvp.example.model.ExampleModel;
+import io.kimo.base.mvp.example.model.CustomerModel;
 import io.kimo.base.v4.example.R;
 
 
@@ -18,13 +18,13 @@ import io.kimo.base.v4.example.R;
 public class ExampleListAdapter extends BaseAdapter {
 
     private Context context;
-    private List<ExampleModel> data = new ArrayList<>();
+    private List<CustomerModel> data = new ArrayList<>();
 
     public ExampleListAdapter(Context context) {
         this.context = context;
     }
 
-    public void setData(List<ExampleModel> newData) {
+    public void setData(List<CustomerModel> newData) {
         data = newData;
         notifyDataSetChanged();
     }
@@ -40,7 +40,7 @@ public class ExampleListAdapter extends BaseAdapter {
     }
 
     @Override
-    public ExampleModel getItem(int position) {
+    public CustomerModel getItem(int position) {
         return data.get(position);
     }
 
@@ -51,7 +51,7 @@ public class ExampleListAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ExampleModel model = getItem(position);
+        CustomerModel model = getItem(position);
 
         convertView = LayoutInflater.from(context).inflate(R.layout.item_example_list, parent, false);
         TextView title = (TextView) convertView.findViewById(R.id.title);

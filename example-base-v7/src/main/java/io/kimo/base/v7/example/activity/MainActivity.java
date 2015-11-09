@@ -4,7 +4,7 @@ import android.support.v4.app.Fragment;
 
 import io.kimo.base.v7.example.ExampleActivity;
 import io.kimo.base.v7.example.R;
-import io.kimo.base.v7.example.fragment.ExampleListFragment;
+import io.kimo.base.v7.example.fragment.CustomerListFragment;
 
 public class MainActivity extends ExampleActivity {
 
@@ -15,7 +15,7 @@ public class MainActivity extends ExampleActivity {
 
     @Override
     public Fragment getMainFragment() {
-        return ExampleListFragment.newInstance();
+        return CustomerListFragment.newInstance();
     }
 
     @Override

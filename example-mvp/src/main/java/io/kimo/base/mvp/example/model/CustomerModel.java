@@ -2,7 +2,7 @@ package io.kimo.base.mvp.example.model;
 
 import io.kimo.base.presentation.mvp.BaseModel;
 
-public class ExampleModel extends BaseModel {
+public class CustomerModel extends BaseModel {
     private String name;
     private String profession;
     private String backgroundUrl;

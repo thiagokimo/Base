@@ -6,10 +6,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
-import io.kimo.base.mvp.example.mapper.ExampleMapper;
-import io.kimo.base.mvp.example.model.ExampleModel;
+import io.kimo.base.mvp.example.mapper.CustomerMapper;
+import io.kimo.base.mvp.example.model.CustomerModel;
 import io.kimo.base.v4.example.R;
-import io.kimo.base.v4.example.fragment.ExampleDetailFragment;
+import io.kimo.base.v4.example.fragment.CustomerDetailFragment;
 import io.kimo.base.v4.presentation.ui.BaseFragmentActivity;
 
 public class ExampleDetailActivity extends BaseFragmentActivity {
@@ -17,11 +17,11 @@ public class ExampleDetailActivity extends BaseFragmentActivity {
     public static final String TAG = ExampleDetailActivity.class.getSimpleName();
     public static final String EXAMPLE_MODEL = TAG + ".EXAMPLE_MODEL";
 
-    private ExampleModel model;
+    private CustomerModel model;
 
-    public static void navigate(ExampleModel model, Context context) {
+    public static void navigate(CustomerModel model, Context context) {
         Intent intent = new Intent(context, ExampleDetailActivity.class);
-        intent.putExtra(EXAMPLE_MODEL, new ExampleMapper().serializeModel(model));
+        intent.putExtra(EXAMPLE_MODEL, new CustomerMapper().serializeModel(model));
 
         context.startActivity(intent);
     }
@@ -32,7 +32,7 @@ public class ExampleDetailActivity extends BaseFragmentActivity {
         Bundle args = getIntent().getExtras();
 
         if(args != null) {
-            model = new ExampleMapper().deserializeModel(args.getString(EXAMPLE_MODEL));
+            model = new CustomerMapper().deserializeModel(args.getString(EXAMPLE_MODEL));
         }
 
         super.onCreate(savedInstanceState);
@@ -45,7 +45,7 @@ public class ExampleDetailActivity extends BaseFragmentActivity {
 
     @Override
     public Fragment getMainFragment() {
-        return ExampleDetailFragment.newInstance(model);
+        return CustomerDetailFragment.newInstance(model);
     }
 
     @Override

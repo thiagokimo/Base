@@ -3,15 +3,15 @@ package io.kimo.base.mvp.example.mapper;
 
 import io.kimo.base.domain.BaseMapper;
 import io.kimo.base.domain.example.entity.ExampleEntity;
-import io.kimo.base.mvp.example.model.ExampleModel;
+import io.kimo.base.mvp.example.model.CustomerModel;
 
-public class ExampleMapper extends BaseMapper<ExampleEntity, ExampleModel> {
+public class CustomerMapper extends BaseMapper<ExampleEntity, CustomerModel> {
 
     public static final String SEPARATOR = "@__I_AM_AN_AWESOME_SEPARATOR__@";
 
     @Override
-    public ExampleModel toModel(ExampleEntity entity) {
-        ExampleModel model = new ExampleModel();
+    public CustomerModel toModel(ExampleEntity entity) {
+        CustomerModel model = new CustomerModel();
 
         model.setName(entity.getName());
         model.setProfession(entity.getTitle());
@@ -21,7 +21,7 @@ public class ExampleMapper extends BaseMapper<ExampleEntity, ExampleModel> {
     }
 
     @Override
-    public String serializeModel(ExampleModel model) {
+    public String serializeModel(CustomerModel model) {
         StringBuilder sb = new StringBuilder();
 
         sb.append(model.getName())
@@ -34,8 +34,8 @@ public class ExampleMapper extends BaseMapper<ExampleEntity, ExampleModel> {
     }
 
     @Override
-    public ExampleModel deserializeModel(String serializedModel) {
-        ExampleModel model = new ExampleModel();
+    public CustomerModel deserializeModel(String serializedModel) {
+        CustomerModel model = new CustomerModel();
 
         String [] serializedFields = serializedModel.split(SEPARATOR);
 

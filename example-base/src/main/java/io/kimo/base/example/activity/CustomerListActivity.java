@@ -1,6 +1,5 @@
-package io.kimo.base.v4.example.fragment;
+package io.kimo.base.example.activity;
 
-import android.content.Context;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -10,16 +9,14 @@ import android.widget.Toast;
 
 import java.util.List;
 
-import io.kimo.base.mvp.example.model.ExampleModel;
-import io.kimo.base.mvp.example.presenter.ExampleListPresenter;
-import io.kimo.base.mvp.example.view.ExampleListView;
-import io.kimo.base.v4.example.R;
-import io.kimo.base.v4.example.activity.ExampleDetailActivity;
-import io.kimo.base.v4.example.adapter.ExampleListAdapter;
-import io.kimo.base.v4.presentation.mvp.BaseView;
+import io.kimo.base.example.R;
+import io.kimo.base.example.adapter.NameListAdapter;
+import io.kimo.base.mvp.example.model.CustomerModel;
+import io.kimo.base.mvp.example.presenter.CustomerListPresenter;
+import io.kimo.base.mvp.example.view.CustomerListView;
+import io.kimo.base.presentation.BaseActivity;
 
-
-public class ExampleListFragment extends BaseView<ExampleListPresenter> implements ExampleListView {
+public class CustomerListActivity extends BaseActivity<CustomerListPresenter> implements CustomerListView {
 
     private ListView list;
     private View loadingView, retryView, emptyView;
@@ -27,38 +24,28 @@ public class ExampleListFragment extends BaseView<ExampleListPresenter> implemen
     private Button retryButton;
     private TextView retryText;
 
-    private ExampleListAdapter adapter;
-
-    public static ExampleListFragment newInstance() {
-        return new ExampleListFragment();
-    }
-
-    @Override
-    public void instantiatePresenter() {
-        presenter = new ExampleListPresenter(getActivity(), this);
-    }
+    private NameListAdapter adapter;
 
     @Override
     public int getLayoutResource() {
-        return R.layout.fragment_list;
+        return R.layout.activity_customer_list;
     }
 
     @Override
-    public void mapGUI(View view) {
-        list = (ListView) view.findViewById(R.id.list);
-        loadingView = view.findViewById(R.id.view_loading);
+    public void mapUI(View view) {
+        list = (ListView) findViewById(R.id.list);
+        loadingView = findViewById(R.id.view_loading);
 
-        emptyView = view.findViewById(R.id.view_empty);
+        emptyView = findViewById(R.id.view_empty);
 
-        retryView = view.findViewById(R.id.view_retry);
+        retryView = findViewById(R.id.view_retry);
         retryText = (TextView) retryView.findViewById(R.id.text);
         retryButton = (Button) retryView.findViewById(R.id.button);
     }
 
     @Override
-    public void configureGUI() {
-
-        adapter = new ExampleListAdapter(getActivity());
+    public void configureUI() {
+        adapter = new NameListAdapter(this);
         list.setAdapter(adapter);
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -77,16 +64,22 @@ public class ExampleListFragment extends BaseView<ExampleListPresenter> implemen
     }
 
     @Override
-    public void showFeedback(String msg) {
-        Context context = getActivity();
-
-        if(context != null) {
-            Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
-        }
+    public CustomerListPresenter instantiatePresenter() {
+        return new CustomerListPresenter(this, this);
     }
 
     @Override
-    public void renderCollection(List<ExampleModel> items) {
+    public void navigateToExampleDetailView(CustomerModel model) {
+        CustomerDetailActivity.navigate(model, this);
+    }
+
+    @Override
+    public void showFeedback(String msg) {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void renderCollection(List<CustomerModel> items) {
         adapter.setData(items);
     }
 
@@ -134,10 +127,5 @@ public class ExampleListFragment extends BaseView<ExampleListPresenter> implemen
     @Override
     public void hideView() {
         list.setVisibility(View.GONE);
-    }
-
-    @Override
-    public void navigateToExampleDetailView(ExampleModel model) {
-        ExampleDetailActivity.navigate(model, getActivity());
     }
 }

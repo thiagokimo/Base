@@ -1,5 +1,4 @@
-package io.kimo.base.presentation.ui;
-
+package io.kimo.base.presentation;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -7,32 +6,36 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public abstract class BaseFragment extends Fragment {
+import io.kimo.base.presentation.mvp.Presenter;
+
+public abstract class BaseFragment<P extends Presenter> extends Fragment implements AndroidViewContract<P> {
+
+    protected P presenter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(getLayoutResource(), container, false);
-        mapGUI(view);
-        configureGUI();
+
+        presenter = instantiatePresenter();
+        if(presenter == null) {
+            throw new IllegalArgumentException("presenter cannot be null");
+        } else {
+            mapUI(view);
+            configureUI();
+        }
+
         return view;
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        startPresenter();
+        presenter.createView();
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        stopPresenter();
+        presenter.destroyView();
     }
-
-    public abstract int getLayoutResource();
-    public abstract void mapGUI(View view);
-    public abstract void configureGUI();
-
-    public abstract void startPresenter();
-    public abstract void stopPresenter();
 }

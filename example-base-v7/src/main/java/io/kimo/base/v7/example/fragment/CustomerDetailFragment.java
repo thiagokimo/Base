@@ -1,4 +1,5 @@
-package io.kimo.base.v4.example.fragment;
+package io.kimo.base.v7.example.fragment;
+
 
 import android.os.Bundle;
 import android.view.View;
@@ -9,32 +10,32 @@ import android.widget.TextView;
 import com.squareup.picasso.MemoryPolicy;
 import com.squareup.picasso.Picasso;
 
-import io.kimo.base.mvp.example.mapper.ExampleMapper;
-import io.kimo.base.mvp.example.model.ExampleModel;
-import io.kimo.base.mvp.example.presenter.ExampleDetailPresenter;
-import io.kimo.base.mvp.example.view.ExampleDetailView;
-import io.kimo.base.v4.example.R;
+import io.kimo.base.mvp.example.mapper.CustomerMapper;
+import io.kimo.base.mvp.example.model.CustomerModel;
+import io.kimo.base.mvp.example.presenter.CustomerDetailPresenter;
+import io.kimo.base.mvp.example.view.CustomerDetailView;
 import io.kimo.base.v4.presentation.mvp.BaseView;
+import io.kimo.base.v7.example.R;
 
 
-public class ExampleDetailFragment extends BaseView<ExampleDetailPresenter> implements ExampleDetailView {
+public class CustomerDetailFragment extends BaseView<CustomerDetailPresenter> implements CustomerDetailView {
 
-    public static final String TAG = ExampleDetailFragment.class.getSimpleName();
+    public static final String TAG = CustomerDetailFragment.class.getSimpleName();
     public static final String EXAMPLE_MODEL = TAG + ".EXAMPLE_MODEL";
 
-    private ExampleModel model;
+    private CustomerModel model;
 
     private View mainView, progressView, retryView;
     private ImageView image;
     private TextView name, profession, retryText;
     private Button retryButton;
 
-    public static ExampleDetailFragment newInstance(ExampleModel model) {
+    public static CustomerDetailFragment newInstance(CustomerModel model) {
 
         Bundle args = new Bundle();
-        args.putString(EXAMPLE_MODEL, new ExampleMapper().serializeModel(model));
+        args.putString(EXAMPLE_MODEL, new CustomerMapper().serializeModel(model));
 
-        ExampleDetailFragment fragment = new ExampleDetailFragment();
+        CustomerDetailFragment fragment = new CustomerDetailFragment();
         fragment.setArguments(args);
 
         return fragment;
@@ -46,7 +47,7 @@ public class ExampleDetailFragment extends BaseView<ExampleDetailPresenter> impl
         Bundle args = getArguments();
 
         if(args != null) {
-            model = new ExampleMapper().deserializeModel(args.getString(EXAMPLE_MODEL));
+            model = new CustomerMapper().deserializeModel(args.getString(EXAMPLE_MODEL));
         }
 
         super.onCreate(savedInstanceState);
@@ -54,7 +55,7 @@ public class ExampleDetailFragment extends BaseView<ExampleDetailPresenter> impl
 
     @Override
     public void instantiatePresenter() {
-        presenter = new ExampleDetailPresenter(model, this);
+        presenter = new CustomerDetailPresenter(model, this);
     }
 
     @Override

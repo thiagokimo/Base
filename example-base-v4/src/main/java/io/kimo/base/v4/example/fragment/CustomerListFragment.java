@@ -1,4 +1,4 @@
-package io.kimo.base.v7.example.fragment;
+package io.kimo.base.v4.example.fragment;
 
 import android.content.Context;
 import android.view.View;
@@ -10,17 +10,16 @@ import android.widget.Toast;
 
 import java.util.List;
 
-import io.kimo.base.mvp.example.model.ExampleModel;
-import io.kimo.base.mvp.example.presenter.ExampleListPresenter;
-import io.kimo.base.mvp.example.view.ExampleListView;
+import io.kimo.base.mvp.example.model.CustomerModel;
+import io.kimo.base.mvp.example.presenter.CustomerListPresenter;
+import io.kimo.base.mvp.example.view.CustomerListView;
+import io.kimo.base.v4.example.R;
+import io.kimo.base.v4.example.activity.ExampleDetailActivity;
+import io.kimo.base.v4.example.adapter.ExampleListAdapter;
 import io.kimo.base.v4.presentation.mvp.BaseView;
-import io.kimo.base.v7.example.R;
-import io.kimo.base.v7.example.activity.ExampleDetailActivity;
-import io.kimo.base.v7.example.adapter.ExampleListAdapter;
 
 
-
-public class ExampleListFragment extends BaseView<ExampleListPresenter> implements ExampleListView {
+public class CustomerListFragment extends BaseView<CustomerListPresenter> implements CustomerListView {
 
     private ListView list;
     private View loadingView, retryView, emptyView;
@@ -30,13 +29,13 @@ public class ExampleListFragment extends BaseView<ExampleListPresenter> implemen
 
     private ExampleListAdapter adapter;
 
-    public static ExampleListFragment newInstance() {
-        return new ExampleListFragment();
+    public static CustomerListFragment newInstance() {
+        return new CustomerListFragment();
     }
 
     @Override
     public void instantiatePresenter() {
-        presenter = new ExampleListPresenter(getActivity(), this);
+        presenter = new CustomerListPresenter(getActivity(), this);
     }
 
     @Override
@@ -87,7 +86,7 @@ public class ExampleListFragment extends BaseView<ExampleListPresenter> implemen
     }
 
     @Override
-    public void renderCollection(List<ExampleModel> items) {
+    public void renderCollection(List<CustomerModel> items) {
         adapter.setData(items);
     }
 
@@ -138,7 +137,7 @@ public class ExampleListFragment extends BaseView<ExampleListPresenter> implemen
     }
 
     @Override
-    public void navigateToExampleDetailView(ExampleModel model) {
+    public void navigateToExampleDetailView(CustomerModel model) {
         ExampleDetailActivity.navigate(model, getActivity());
     }
 }
