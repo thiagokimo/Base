@@ -16,6 +16,6 @@ public interface AndroidViewContract<P extends Presenter> {
     void configureUI();
 
     /* initialize your presenter in here.
-    This is a temporary place where you need to deserializeyour presenter arguments as well. */
+    This is a temporary place where you need to deserialize your presenter arguments as well. */
     P instantiatePresenter();
 }
