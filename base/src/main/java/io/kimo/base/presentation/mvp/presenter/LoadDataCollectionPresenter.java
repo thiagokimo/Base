@@ -1,4 +1,4 @@
-package io.kimo.base.presentation.mvp;
+package io.kimo.base.presentation.mvp.presenter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,6 +8,8 @@ import io.kimo.base.domain.BaseMapper;
 import io.kimo.base.domain.Callback;
 import io.kimo.base.domain.Entity;
 import io.kimo.base.domain.usecase.LoadCollectionUseCase;
+import io.kimo.base.presentation.mvp.BasePresenter;
+import io.kimo.base.presentation.mvp.Model;
 import io.kimo.base.presentation.mvp.view.LoadDataCollectionView;
 
 

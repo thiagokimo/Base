@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Example Base v4</string>
+    <string name="app_name">Fragment-oriented Example</string>
 
     <string name="message_empty">There are no items</string>
 </resources>
