@@ -2,15 +2,15 @@ package io.kimo.base.mvp.example.mapper;
 
 
 import io.kimo.base.domain.BaseMapper;
-import io.kimo.base.domain.example.entity.ExampleEntity;
+import io.kimo.base.domain.example.entity.CostumerEntity;
 import io.kimo.base.mvp.example.model.CustomerModel;
 
-public class CustomerMapper extends BaseMapper<ExampleEntity, CustomerModel> {
+public class CustomerMapper extends BaseMapper<CostumerEntity, CustomerModel> {
 
     public static final String SEPARATOR = "@__I_AM_AN_AWESOME_SEPARATOR__@";
 
     @Override
-    public CustomerModel toModel(ExampleEntity entity) {
+    public CustomerModel toModel(CostumerEntity entity) {
         CustomerModel model = new CustomerModel();
 
         model.setName(entity.getName());

@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.concurrent.Executors;
 
 import io.kimo.base.domain.Callback;
-import io.kimo.base.domain.example.entity.ExampleEntity;
-import io.kimo.base.domain.example.usecase.ExampleUseCase;
+import io.kimo.base.domain.example.entity.CostumerEntity;
+import io.kimo.base.domain.example.usecase.GetCostumersUseCase;
 import io.kimo.base.mvp.example.mapper.CustomerMapper;
 import io.kimo.base.mvp.example.model.CustomerModel;
 import io.kimo.base.mvp.example.view.CustomerListView;
@@ -34,9 +34,9 @@ public class CustomerListPresenter extends BasePresenter<CustomerListView> {
 
         view.showProgress();
 
-        Executors.newSingleThreadExecutor().execute(new ExampleUseCase(context, new Callback<List<ExampleEntity>>() {
+        Executors.newSingleThreadExecutor().execute(new GetCostumersUseCase(context, new Callback<List<CostumerEntity>>() {
             @Override
-            public void onSuccess(List<ExampleEntity> result) {
+            public void onSuccess(List<CostumerEntity> result) {
                 List<CustomerModel> models = new CustomerMapper().toModels(result);
 
                 if (models.isEmpty()) {
