@@ -1,12 +1,12 @@
-package io.kimo.base.v7.presentation.ui;
+package io.kimo.base.v4.presentation;
 
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v4.app.FragmentActivity;
 
 import io.kimo.base.presentation.AndroidViewContract;
 import io.kimo.base.presentation.mvp.Presenter;
 
-public abstract class BaseActionBarActivity<P extends Presenter> extends ActionBarActivity implements AndroidViewContract<P> {
+public abstract class BaseFragmentActivity<P extends Presenter> extends FragmentActivity implements AndroidViewContract<P> {
 
     protected P presenter;
 

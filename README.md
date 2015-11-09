@@ -29,30 +29,30 @@ Add the base into your dependencies:
 ``` groovy
 dependencies {
     // base files
-    compile 'com.github.thiagokimo.Base:base:1.1.1'
+    compile 'com.github.thiagokimo.Base:base:1.2.0'
 }
 ```
 
 Base can be used with the support libraries as well:
 ``` groovy
 // support v4
-compile 'com.github.thiagokimo.Base:base-v4:1.1.1'
+compile 'com.github.thiagokimo.Base:base-v4:1.2.0'
 ```
 ``` groovy
 // support v7
-compile 'com.github.thiagokimo.Base:base-v7:1.1.1'
+compile 'com.github.thiagokimo.Base:base-v7:1.2.0'
 ```
 
 If you want to use Base in separate modules you could also add them separately.
 
 For the MVP base files:
 ```groovy
-compile 'com.github.thiagokimo.Base:base-mvp:1.1.1'
+compile 'com.github.thiagokimo.Base:base-mvp:1.2.0'
 ```
 
 Or just the domain files:
 ``` groovy
-compile 'com.github.thiagokimo.Base:base-domain:1.1.1'
+compile 'com.github.thiagokimo.Base:base-domain:1.2.0'
 ```
 
 ## Credits

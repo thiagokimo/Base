@@ -1,5 +1,6 @@
-package io.kimo.base.example.activity;
+package io.kimo.base.v4.example.fragment;
 
+import android.content.Context;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -9,14 +10,16 @@ import android.widget.Toast;
 
 import java.util.List;
 
-import io.kimo.base.example.R;
-import io.kimo.base.example.adapter.CustomerListAdapter;
 import io.kimo.base.mvp.example.model.CustomerModel;
 import io.kimo.base.mvp.example.presenter.CustomerListPresenter;
 import io.kimo.base.mvp.example.view.CustomerListView;
-import io.kimo.base.presentation.BaseActivity;
+import io.kimo.base.v4.example.R;
+import io.kimo.base.v4.example.activity.CustomerDetailActivity;
+import io.kimo.base.v4.example.adapter.CustomerListAdapter;
+import io.kimo.base.v4.presentation.BaseSupportFragment;
 
-public class CustomerListActivity extends BaseActivity<CustomerListPresenter> implements CustomerListView {
+
+public class CustomerListFragment extends BaseSupportFragment<CustomerListPresenter> implements CustomerListView {
 
     private ListView list;
     private View loadingView, retryView, emptyView;
@@ -26,26 +29,35 @@ public class CustomerListActivity extends BaseActivity<CustomerListPresenter> im
 
     private CustomerListAdapter adapter;
 
+    public static CustomerListFragment newInstance() {
+        return new CustomerListFragment();
+    }
+
+    @Override
+    public CustomerListPresenter instantiatePresenter() {
+        return new CustomerListPresenter(getActivity(), this);
+    }
+
     @Override
     public int getLayoutResource() {
-        return R.layout.activity_customer_list;
+        return R.layout.fragment_list;
     }
 
     @Override
     public void mapUI(View view) {
-        list = (ListView) findViewById(R.id.list);
-        loadingView = findViewById(R.id.view_loading);
+        list = (ListView) view.findViewById(R.id.list);
+        loadingView = view.findViewById(R.id.view_loading);
 
-        emptyView = findViewById(R.id.view_empty);
+        emptyView = view.findViewById(R.id.view_empty);
 
-        retryView = findViewById(R.id.view_retry);
+        retryView = view.findViewById(R.id.view_retry);
         retryText = (TextView) retryView.findViewById(R.id.text);
         retryButton = (Button) retryView.findViewById(R.id.button);
     }
 
     @Override
     public void configureUI() {
-        adapter = new CustomerListAdapter(this);
+        adapter = new CustomerListAdapter(getActivity());
         list.setAdapter(adapter);
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -64,18 +76,12 @@ public class CustomerListActivity extends BaseActivity<CustomerListPresenter> im
     }
 
     @Override
-    public CustomerListPresenter instantiatePresenter() {
-        return new CustomerListPresenter(this, this);
-    }
-
-    @Override
-    public void navigateToExampleDetailView(CustomerModel model) {
-        CustomerDetailActivity.navigate(model, this);
-    }
-
-    @Override
     public void showFeedback(String msg) {
-        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+        Context context = getActivity();
+
+        if(context != null) {
+            Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
@@ -127,5 +133,10 @@ public class CustomerListActivity extends BaseActivity<CustomerListPresenter> im
     @Override
     public void hideView() {
         list.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void navigateToExampleDetailView(CustomerModel model) {
+        CustomerDetailActivity.navigate(model, getActivity());
     }
 }
