@@ -2,14 +2,14 @@ package io.kimo.base.presentation.mvp;
 
 public abstract class BaseModel implements Model {
 
-    private long modelId;
+    private long mModelId;
 
     public BaseModel() {
-        modelId = System.currentTimeMillis();
+        mModelId = System.currentTimeMillis();
     }
 
     @Override
     public long getModelId() {
-        return modelId;
+        return mModelId;
     }
 }

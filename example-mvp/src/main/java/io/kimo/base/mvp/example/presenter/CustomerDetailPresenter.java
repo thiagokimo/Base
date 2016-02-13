@@ -19,20 +19,20 @@ public class CustomerDetailPresenter extends BasePresenter<CustomerDetailView> {
     public void createView() {
         super.createView();
 
-        view.showProgress();
+        mView.showProgress();
 
-        view.updateBackground(model.getBackgroundUrl());
-        view.updateName(model.getName());
-        view.updateProfession(model.getProfession());
+        mView.updateBackground(model.getBackgroundUrl());
+        mView.updateName(model.getName());
+        mView.updateProfession(model.getProfession());
 
-        view.hideProgress();
-        view.showView();
+        mView.hideProgress();
+        mView.showView();
     }
 
     @Override
     protected void hideAllViews() {
-        view.hideProgress();
-        view.hideView();
+        mView.hideProgress();
+        mView.hideView();
     }
 
     @Override

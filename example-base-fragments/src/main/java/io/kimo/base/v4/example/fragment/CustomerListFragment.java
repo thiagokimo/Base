@@ -62,15 +62,15 @@ public class CustomerListFragment extends BaseSupportFragment<CustomerListPresen
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                presenter.navigateToExampleDetailView(adapter.getItem(position));
+                mPresenter.navigateToExampleDetailView(adapter.getItem(position));
             }
         });
 
         retryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                presenter.destroyView();
-                presenter.createView();
+                mPresenter.destroyView();
+                mPresenter.createView();
             }
         });
     }

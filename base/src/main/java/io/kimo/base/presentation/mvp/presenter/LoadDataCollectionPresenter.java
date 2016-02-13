@@ -15,61 +15,61 @@ import io.kimo.base.presentation.mvp.view.LoadDataCollectionView;
 
 public class LoadDataCollectionPresenter<E extends Entity, M extends Model> extends BasePresenter<LoadDataCollectionView<M>> {
 
-    protected Executor executor;
-    protected LoadCollectionUseCase<E> useCase;
-    protected BaseMapper<E,M> mapper;
-    protected List<E> loadedColletion = new ArrayList<>();
+    protected Executor mExecutor;
+    protected LoadCollectionUseCase<E> mUseCase;
+    protected BaseMapper<E,M> mMapper;
+    protected List<E> mLoadedCollection = new ArrayList<>();
 
     public LoadDataCollectionPresenter(LoadDataCollectionView<M> view, BaseMapper<E, M> mapper, LoadCollectionUseCase<E> useCase, Executor executor) {
         super(view);
-        this.mapper = mapper;
-        this.useCase = useCase;
-        this.executor = executor;
+        this.mMapper = mapper;
+        this.mUseCase = useCase;
+        this.mExecutor = executor;
     }
 
     @Override
     public void createView() {
         super.createView();
 
-        view.showProgress();
+        mView.showProgress();
 
-        useCase.setCallback(new Callback<List<E>>() {
+        mUseCase.setCallback(new Callback<List<E>>() {
             @Override
             public void onSuccess(List<E> result) {
 
-                loadedColletion = result;
+                mLoadedCollection = result;
 
-                if(result.isEmpty()) {
-                    view.hideProgress();
-                    view.showEmpty();
+                if (result.isEmpty()) {
+                    mView.hideProgress();
+                    mView.showEmpty();
                 } else {
-                    view.hideProgress();
-                    view.renderCollection(mapper.toModels(result));
-                    view.showView();
+                    mView.hideProgress();
+                    mView.renderCollection(mMapper.toModels(result));
+                    mView.showView();
                 }
             }
 
             @Override
             public void onError(String error) {
-                view.hideProgress();
-                view.showRetry(error);
-                view.showFeedback("Try again");
+                mView.hideProgress();
+                mView.showRetry(error);
+                mView.showFeedback("Try again");
             }
         });
 
-        executor.execute(useCase);
+        mExecutor.execute(mUseCase);
     }
 
     @Override
     protected void hideAllViews() {
-        view.hideView();
-        view.hideProgress();
-        view.hideEmpty();
-        view.hideRetry();
+        mView.hideView();
+        mView.hideProgress();
+        mView.hideEmpty();
+        mView.hideRetry();
     }
 
     @Override
     public void destroyView() {
-        view.clearCollection();
+        mView.clearCollection();
     }
 }

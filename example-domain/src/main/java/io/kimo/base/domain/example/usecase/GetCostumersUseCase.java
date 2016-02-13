@@ -19,15 +19,15 @@ import io.kimo.lib.faker.Faker;
  *
  * Scenario 1: Filled array - 45% of chance to happen
  * In this scenario the use case returns an array of CustomerEntity.
- * The presenter back in the presentation layer might do something to display the array.
+ * The mPresenter back in the presentation layer might do something to display the array.
  *
  * Scenario 2: Empty array - 30% of chance to happen
- * In this scenario the use case returns an empty array. The presenter back in the presentation
- * layer might check if the array is empty, displaying a proper view.
+ * In this scenario the use case returns an empty array. The mPresenter back in the presentation
+ * layer might check if the array is empty, displaying a proper mView.
  *
  * Scenario 3: Error - 12% of chance to happen
  * In this scenario I simulated a non unexpected error. The use case throws an error that is handled
- * the onError callback of the BaseUseCase. The presenter might treat this error as well.
+ * the onError mCallback of the BaseUseCase. The mPresenter might treat this error as well.
  */
 public class GetCostumersUseCase extends BaseUseCase<List<CostumerEntity>> {
 

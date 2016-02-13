@@ -25,14 +25,14 @@ public class CustomerListPresenter extends BasePresenter<CustomerListView> {
     }
 
     public void navigateToExampleDetailView(CustomerModel model) {
-        view.navigateToExampleDetailView(model);
+        mView.navigateToExampleDetailView(model);
     }
 
     @Override
     public void createView() {
         super.createView();
 
-        view.showProgress();
+        mView.showProgress();
 
         Executors.newSingleThreadExecutor().execute(new GetCostumersUseCase(context, new Callback<List<CostumerEntity>>() {
             @Override
@@ -40,30 +40,31 @@ public class CustomerListPresenter extends BasePresenter<CustomerListView> {
                 List<CustomerModel> models = new CustomerMapper().toModels(result);
 
                 if (models.isEmpty()) {
-                    view.hideProgress();
-                    view.showEmpty();
+                    mView.hideProgress();
+                    mView.showEmpty();
 
-                    view.showFeedback("Execute it again.");
+                    mView.showFeedback("Execute it again.");
                 } else {
-                    view.renderCollection(models);
-                    view.showView();
-                    view.hideProgress();
+                    mView.renderCollection(models);
+                    mView.showView();
+                    mView.hideProgress();
                 }
             }
 
             @Override
             public void onError(String error) {
-                view.showRetry(error);
-                view.hideProgress();
+                mView.showRetry(error);
+                mView.hideProgress();
             }
         }));
     }
 
     @Override
     protected void hideAllViews() {
-        view.hideView();
+        mView.hideView();
     }
 
     @Override
-    public void destroyView() {view.clearCollection();}
+    public void destroyView() {
+        mView.clearCollection();}
 }

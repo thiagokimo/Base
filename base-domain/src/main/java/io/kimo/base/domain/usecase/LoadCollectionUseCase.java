@@ -19,6 +19,6 @@ public abstract class LoadCollectionUseCase<E extends Entity> extends BaseUseCas
     }
 
     public void setCallback(Callback<List<E>> callback) {
-        this.callback = callback;
+        this.mCallback = callback;
     }
 }

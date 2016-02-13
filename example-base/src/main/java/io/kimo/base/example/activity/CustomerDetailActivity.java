@@ -56,8 +56,8 @@ public class CustomerDetailActivity extends BaseActivity<CustomerDetailPresenter
         retryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                presenter.destroyView();
-                presenter.createView();
+                mPresenter.destroyView();
+                mPresenter.createView();
             }
         });
     }

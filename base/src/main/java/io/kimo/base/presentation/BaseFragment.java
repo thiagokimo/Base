@@ -10,14 +10,14 @@ import io.kimo.base.presentation.mvp.Presenter;
 
 public abstract class BaseFragment<P extends Presenter> extends Fragment implements AndroidViewContract<P> {
 
-    protected P presenter;
+    protected P mPresenter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(getLayoutResource(), container, false);
 
-        presenter = instantiatePresenter();
-        if(presenter == null) {
+        mPresenter = instantiatePresenter();
+        if(mPresenter == null) {
             throw new IllegalArgumentException("presenter cannot be null");
         } else {
             mapUI(view);
@@ -30,12 +30,12 @@ public abstract class BaseFragment<P extends Presenter> extends Fragment impleme
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        presenter.createView();
+        mPresenter.createView();
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        presenter.destroyView();
+        mPresenter.destroyView();
     }
 }

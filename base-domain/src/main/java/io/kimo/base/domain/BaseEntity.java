@@ -2,14 +2,14 @@ package io.kimo.base.domain;
 
 
 public abstract class BaseEntity implements Entity {
-    protected long entityId;
+    protected long mEntityId;
 
     public BaseEntity() {
-        entityId = System.currentTimeMillis();
+        mEntityId = System.currentTimeMillis();
     }
 
     @Override
     public long getEntityId() {
-        return entityId;
+        return mEntityId;
     }
 }

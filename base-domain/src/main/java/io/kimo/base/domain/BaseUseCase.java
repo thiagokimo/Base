@@ -5,36 +5,36 @@ import android.os.Looper;
 
 public abstract class BaseUseCase<T> implements UseCase<T>, Runnable {
 
-    public Callback<T> callback;
-    protected String errorReason = "Something wrong happened";
-    protected Handler mainThread = new Handler(Looper.getMainLooper());
+    public Callback<T> mCallback;
+    protected String mErrorReason = "Something wrong happened";
+    protected Handler mMainThread = new Handler(Looper.getMainLooper());
 
-    public BaseUseCase(Callback<T> callback) {
-        this.callback = callback;
+    public BaseUseCase(Callback<T> mCallback) {
+        this.mCallback = mCallback;
     }
 
     @Override
     public void run() {
         try {
             final T result = perform();
-            mainThread.post(new Runnable() {
+            mMainThread.post(new Runnable() {
                 @Override
                 public void run() {
-                    callback.onSuccess(result);
+                    mCallback.onSuccess(result);
                 }
             });
         } catch (Exception e) {
-            errorReason = e.getMessage();
+            mErrorReason = e.getMessage();
             onError();
         }
     }
 
     @Override
     public void onError() {
-        mainThread.post(new Runnable() {
+        mMainThread.post(new Runnable() {
             @Override
             public void run() {
-                callback.onError(errorReason);
+                mCallback.onError(mErrorReason);
             }
         });
     }

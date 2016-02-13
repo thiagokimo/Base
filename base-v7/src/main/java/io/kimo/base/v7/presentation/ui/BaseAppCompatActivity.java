@@ -9,28 +9,28 @@ import io.kimo.base.presentation.mvp.Presenter;
 
 public abstract class BaseAppCompatActivity<P extends Presenter> extends AppCompatActivity implements AndroidViewContract<P>{
 
-    protected P presenter;
+    protected P mPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutResource());
 
-        presenter = instantiatePresenter();
+        mPresenter = instantiatePresenter();
 
-        if(presenter == null) {
-            throw new IllegalArgumentException("presenter cannot be null");
+        if(mPresenter == null) {
+            throw new IllegalArgumentException("mPresenter cannot be null");
         } else {
             mapUI(findViewById(android.R.id.content));
             configureUI();
         }
 
-        presenter.createView();
+        mPresenter.createView();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        presenter.destroyView();
+        mPresenter.destroyView();
     }
 }

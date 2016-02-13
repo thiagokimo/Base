@@ -2,10 +2,10 @@ package io.kimo.base.presentation.mvp;
 
 public abstract class BasePresenter<V extends View> implements Presenter {
 
-    protected V view;
+    protected V mView;
 
     public BasePresenter(V view) {
-        this.view = view;
+        this.mView = view;
     }
 
     @Override
