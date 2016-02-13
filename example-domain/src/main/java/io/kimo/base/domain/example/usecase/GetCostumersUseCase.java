@@ -1,14 +1,11 @@
 package io.kimo.base.domain.example.usecase;
 
-import android.content.Context;
-
 import java.util.ArrayList;
 import java.util.List;
 
 import io.kimo.base.domain.BaseUseCase;
 import io.kimo.base.domain.Callback;
 import io.kimo.base.domain.example.entity.CostumerEntity;
-import io.kimo.lib.faker.Faker;
 
 /**
  * Get Costumers use case
@@ -44,11 +41,10 @@ public class GetCostumersUseCase extends BaseUseCase<List<CostumerEntity>> {
 
     public static final String ERROR_MESSAGE = "An error message";
 
-    private Context context;
+    public static final String IMAGE_URL = "http://lorempixel.com/400/200/";
 
-    public GetCostumersUseCase(Context context, Callback<List<CostumerEntity>> callback) {
-        super(callback);
-        this.context = context;
+    public GetCostumersUseCase(Callback<List<CostumerEntity>> mCallback) {
+        super(mCallback);
     }
 
     @Override
@@ -62,7 +58,11 @@ public class GetCostumersUseCase extends BaseUseCase<List<CostumerEntity>> {
 
         if(scenarioToBeReturned == FILLED_ARRAY) {
             for(int i = 0; i < 100; i++) {
-                items.add(new CostumerEntity(Faker.with(context).Name.fullName(), Faker.with(context).Name.title(), Faker.with(context).Url.image()));
+
+                String name = "First Middle Last "+ i;
+                String title = "A title called "+ i;
+
+                items.add(new CostumerEntity(name, title, IMAGE_URL));
             }
 
             return items;

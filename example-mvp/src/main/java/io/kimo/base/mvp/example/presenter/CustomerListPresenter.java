@@ -34,7 +34,7 @@ public class CustomerListPresenter extends BasePresenter<CustomerListView> {
 
         mView.showProgress();
 
-        Executors.newSingleThreadExecutor().execute(new GetCostumersUseCase(context, new Callback<List<CostumerEntity>>() {
+        Executors.newSingleThreadExecutor().execute(new GetCostumersUseCase(new Callback<List<CostumerEntity>>() {
             @Override
             public void onSuccess(List<CostumerEntity> result) {
                 List<CustomerModel> models = new CustomerMapper().toModels(result);
