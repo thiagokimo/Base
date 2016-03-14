@@ -1,4 +1,4 @@
-package io.kimo.base.presentation.mvp.view;
+package io.kimo.base.mvp.view;
 
 import io.kimo.base.presentation.mvp.View;
 

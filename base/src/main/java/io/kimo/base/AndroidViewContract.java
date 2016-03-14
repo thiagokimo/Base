@@ -1,4 +1,4 @@
-package io.kimo.base.presentation;
+package io.kimo.base;
 
 import android.view.View;
 
@@ -18,4 +18,7 @@ public interface AndroidViewContract<P extends Presenter> {
     /* initialize your presenter in here.
     This is a temporary place where you need to deserialize your presenter arguments as well. */
     P instantiatePresenter();
+
+    /* returns the instance created at @link{instantiatePresenter()} */
+    P getPresenter();
 }

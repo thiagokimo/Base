@@ -16,7 +16,7 @@ import io.kimo.base.mvp.example.mapper.CustomerMapper;
 import io.kimo.base.mvp.example.model.CustomerModel;
 import io.kimo.base.mvp.example.presenter.CustomerDetailPresenter;
 import io.kimo.base.mvp.example.view.CustomerDetailView;
-import io.kimo.base.presentation.BaseActivity;
+import io.kimo.base.activity.BaseActivity;
 
 public class CustomerDetailActivity extends BaseActivity<CustomerDetailPresenter> implements CustomerDetailView {
 
@@ -56,8 +56,8 @@ public class CustomerDetailActivity extends BaseActivity<CustomerDetailPresenter
         retryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mPresenter.destroyView();
-                mPresenter.createView();
+                getPresenter().destroyView();
+                getPresenter().createView();
             }
         });
     }

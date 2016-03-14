@@ -1,4 +1,4 @@
-package io.kimo.base.presentation.mvp.presenter;
+package io.kimo.base.mvp.presenter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +10,7 @@ import io.kimo.base.domain.Entity;
 import io.kimo.base.domain.usecase.LoadCollectionUseCase;
 import io.kimo.base.presentation.mvp.BasePresenter;
 import io.kimo.base.presentation.mvp.Model;
-import io.kimo.base.presentation.mvp.view.LoadDataCollectionView;
+import io.kimo.base.mvp.view.LoadDataCollectionView;
 
 
 public class LoadDataCollectionPresenter<E extends Entity, M extends Model> extends BasePresenter<LoadDataCollectionView<M>> {

@@ -22,4 +22,7 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile project(':base-domain')
     compile project(':base-mvp')
+
+    testCompile 'junit:junit:4.12'
+    compile 'org.mockito:mockito-all:1.+'
 }

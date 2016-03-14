@@ -14,7 +14,7 @@ import io.kimo.base.example.adapter.CustomerListAdapter;
 import io.kimo.base.mvp.example.model.CustomerModel;
 import io.kimo.base.mvp.example.presenter.CustomerListPresenter;
 import io.kimo.base.mvp.example.view.CustomerListView;
-import io.kimo.base.presentation.BaseActivity;
+import io.kimo.base.activity.BaseActivity;
 
 public class CustomerListActivity extends BaseActivity<CustomerListPresenter> implements CustomerListView {
 
@@ -50,15 +50,15 @@ public class CustomerListActivity extends BaseActivity<CustomerListPresenter> im
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                mPresenter.navigateToExampleDetailView(adapter.getItem(position));
+                getPresenter().navigateToExampleDetailView(adapter.getItem(position));
             }
         });
 
         retryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mPresenter.destroyView();
-                mPresenter.createView();
+                getPresenter().destroyView();
+                getPresenter().createView();
             }
         });
     }

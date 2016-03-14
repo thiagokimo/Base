@@ -1,4 +1,4 @@
-package io.kimo.base.v4.presentation;
+package io.kimo.base.v4.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import io.kimo.base.presentation.AndroidViewContract;
+import io.kimo.base.AndroidViewContract;
 import io.kimo.base.presentation.mvp.Presenter;
 
 public abstract class BaseSupportFragment<P extends Presenter> extends Fragment implements AndroidViewContract<P> {
