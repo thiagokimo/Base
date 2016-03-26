@@ -27,18 +27,18 @@ Add the base into your dependencies:
 ``` groovy
 dependencies {
     // base files
-    compile 'com.github.thiagokimo.Base:base:1.2.0'
+    compile 'com.github.thiagokimo.Base:base:1.3.0'
 }
 ```
 
 Base can be used with the support libraries as well:
 ``` groovy
 // support v4
-compile 'com.github.thiagokimo.Base:base-v4:1.2.0'
+compile 'com.github.thiagokimo.Base:base-v4:1.3.0'
 ```
 ``` groovy
 // support v7
-compile 'com.github.thiagokimo.Base:base-v7:1.2.0'
+compile 'com.github.thiagokimo.Base:base-v7:1.3.0'
 ```
 
 ## Credits
