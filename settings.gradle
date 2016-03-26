@@ -1,1 +1,1 @@
-include ':base', ':example-base', ':base-v7', ':base-mvp', ':base-domain', ':base-v4', ':example-domain', ':example-base-fragments', ':example-mvp'
+include ':base', ':base-v7', ':base-v4', ':example'
