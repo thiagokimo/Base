@@ -10,8 +10,6 @@ Base is a lightweight library that gives you a clean architecture foundation for
 The main objective of this repository is to show developers
 how I would architect my Android code in future projects.
 
-![diagram](http://kimo.io/images/android-diagram.png)
-
 For more details of this library, click [here](http://kimo.io/2015/09/06/base/).
 
 ## Using
@@ -41,18 +39,6 @@ compile 'com.github.thiagokimo.Base:base-v4:1.2.0'
 ``` groovy
 // support v7
 compile 'com.github.thiagokimo.Base:base-v7:1.2.0'
-```
-
-If you want to use Base in separate modules you could also add them separately.
-
-For the MVP base files:
-```groovy
-compile 'com.github.thiagokimo.Base:base-mvp:1.2.0'
-```
-
-Or just the domain files:
-``` groovy
-compile 'com.github.thiagokimo.Base:base-domain:1.2.0'
 ```
 
 ## Credits
