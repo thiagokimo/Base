@@ -1,4 +1,4 @@
-#Base
+# Base
 
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Base-green.svg?style=flat)](https://android-arsenal.com/details/1/2454)
 ![Jitpack Badge](http://img.shields.io/github/release/thiagokimo/Base.svg?label=JitPack)
@@ -44,7 +44,7 @@ compile 'com.github.thiagokimo.Base:base-v7:1.3.0'
 ## Credits
 - Icon by Jhun Capaya
 
-##License
+## License
 
     Copyright 2011, 2012 Thiago Rocha
 
